@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bookshelf App</h1>
+            <p>Kelola koleksi buku Anda dengan mudah</p>
+        </header>
+
+        <main>
+            <section class="search-section" id="search_section">
+                <h2>Cari Buku</h2>
+                <form id="searchBook" data-testid="searchBookForm">
+                    <input type="text" id="searchBookTitle" placeholder="Masukkan judul buku..." data-testid="searchBookFormTitleInput">
+                    <button type="submit" id="searchSubmit" data-testid="searchBookFormSubmitButton">Cari</button>
+                </form>
+            </section>
+
+            <section class="input-section" id="input_section">
+                <h2>Masukkan Buku Baru</h2>
+                <form id="inputBook" data-testid="bookForm">
+                    <div class="input">
+                        <label for="inputBookTitle">Judul</label>
+                        <input type="text" id="inputBookTitle" required data-testid="bookFormTitleInput">
+                    </div>
+                    <div class="input">
+                        <label for="inputBookAuthor">Penulis</label>
+                        <input type="text" id="inputBookAuthor" required data-testid="bookFormAuthorInput">
+                    </div>
+                    <div class="input">
+                        <label for="inputBookYear">Tahun</label>
+                        <input type="number" id="inputBookYear" required data-testid="bookFormYearInput">
+                    </div>
+                    <div class="input">
+                        <div class="check">
+                            <input type="checkbox" id="inputBookIsComplete" data-testid="bookFormIsCompleteCheckbox">
+                            <label for="inputBookIsComplete">Selesai dibaca</label>
+                        </div>
+                    </div>
+                    <button id="bookSubmit" type="submit" data-testid="bookFormSubmitButton">Masukkan Buku ke rak</button>
+                </form>
+            </section>
+
+            <div class="bookshelf-container">
+                <div class="book-shelf">
+                    <h2>Belum selesai dibaca</h2>
+                    <div id="incompleteBookshelfList" class="book-list" data-testid="incompleteBookList">
+                        <div class="empty-message">Tidak ada buku yang belum selesai dibaca</div>
+                    </div>
+                </div>
+
+                <div class="book-shelf">
+                    <h2>Selesai dibaca</h2>
+                    <div id="completeBookshelfList" class="book-list" data-testid="completeBookList">
+                        <div class="empty-message">Tidak ada buku yang selesai dibaca</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Bookshelf App. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Modal untuk edit buku -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h2>Edit Buku</h2>
+            <form id="editBookForm">
+                <input type="hidden" id="editBookId">
+                <div class="input">
+                    <label for="editBookTitle">Judul</label>
+                    <input type="text" id="editBookTitle" required>
+                </div>
+                <div class="input">
+                    <label for="editBookAuthor">Penulis</label>
+                    <input type="text" id="editBookAuthor" required>
+                </div>
+                <div class="input">
+                    <label for="editBookYear">Tahun</label>
+                    <input type="number" id="editBookYear" required>
+                </div>
+                <div class="input">
+                    <div class="check">
+                        <input type="checkbox" id="editBookIsComplete">
+                        <label for="editBookIsComplete">Selesai dibaca</label>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="green">Simpan Perubahan</button>
+                    <button type="button" id="cancelEdit" class="gray">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+       <script src="script/js.js"></script>
+</body>
+</html>
